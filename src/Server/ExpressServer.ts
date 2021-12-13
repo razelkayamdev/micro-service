@@ -21,7 +21,7 @@ export class ExpressServer {
 
     public listen() {
         this.server = this.app.listen(this.port, () => {
-            console.log(`Express server is listening on http://localhost:${this.port}`)
+            console.log(`Express server is listening on http://localhost:${this.port}`);
         })
     }
 
@@ -31,7 +31,8 @@ export class ExpressServer {
     }
 
     private errorHandler(err: any, req: Request, res: Response, next: any) {
-        console.error(err.stack)
-        res.status(500).send('Something broke!')
+        console.error(err.stack);
+        res.status(500).send('Something broke!');
+        next();
     }
 }
